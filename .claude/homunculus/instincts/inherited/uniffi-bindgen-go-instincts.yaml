@@ -1,0 +1,614 @@
+# Instincts generated from https://github.com/WangNingkai/uniffi-bindgen-go
+# Generated: 2026-04-01T08:30:13.028Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: uniffi-bindgen-go-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Commit Length
+
+## Action
+
+Keep commit messages concise (~33 characters)
+
+## Evidence
+
+- Average commit message length: 33 chars
+- Based on 72 commits
+
+---
+id: uniffi-bindgen-go-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Naming Files
+
+## Action
+
+Use PascalCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: PascalCase
+
+---
+id: uniffi-bindgen-go-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: uniffi-bindgen-go-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: uniffi-bindgen-go-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: uniffi-bindgen-go-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: **/*.test.*
+
+---
+id: uniffi-bindgen-go-workflow-test-driven-development
+trigger: "when adding new functionality"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Workflow Test Driven Development
+
+## Action
+
+Follow the test-driven-development workflow:
+1. Write failing test
+2. Implement code to pass test
+3. Refactor if needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: **/*.test.*, **/*.spec.*, src/**/*
+
+---
+id: uniffi-bindgen-go-workflow-upgrade-uniffi-and-dependencies
+trigger: "when doing upgrade uniffi and dependencies"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Workflow Upgrade Uniffi And Dependencies
+
+## Action
+
+Follow the upgrade-uniffi-and-dependencies workflow:
+1. Update version numbers in Cargo.toml and bindgen/Cargo.toml (and sometimes fixtures/Cargo.toml).
+2. Update Cargo.lock.
+3. Adapt Rust source files in bindgen/src/gen_go/ (multiple .rs files) to new uniffi APIs.
+4. Update Go template files in bindgen/templates/ to match new FFI conventions.
+5. Update or add tests in binding_tests/ and fixtures/ as needed.
+6. Update README.md and CHANGELOG.md with release notes.
+7. Update rust-toolchain.toml if MSRV changes.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: Cargo.toml, bindgen/Cargo.toml, fixtures/Cargo.toml
+
+---
+id: uniffi-bindgen-go-workflow-release-version-bump
+trigger: "when doing release version bump"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Workflow Release Version Bump
+
+## Action
+
+Follow the release-version-bump workflow:
+1. Update version numbers in Cargo.toml and bindgen/Cargo.toml.
+2. Update Cargo.lock.
+3. Update README.md and CHANGELOG.md with the new version and notes.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: Cargo.toml, bindgen/Cargo.toml, Cargo.lock
+
+---
+id: uniffi-bindgen-go-workflow-add-or-update-fixture
+trigger: "when doing add or update fixture"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Workflow Add Or Update Fixture
+
+## Action
+
+Follow the add-or-update-fixture workflow:
+1. Add or update a directory under fixtures/ (e.g., fixtures/empty_string_and_bytes/).
+2. Edit or add Cargo.toml, build.rs, *.udl, and src/lib.rs in the fixture.
+3. Update fixtures/Cargo.toml to include the new fixture.
+4. Add or update corresponding test files in binding_tests/.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: fixtures/*/Cargo.toml, fixtures/*/build.rs, fixtures/*/src/*.udl
+
+---
+id: uniffi-bindgen-go-workflow-feature-or-bugfix-in-bindgen-templates
+trigger: "when doing feature or bugfix in bindgen templates"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Workflow Feature Or Bugfix In Bindgen Templates
+
+## Action
+
+Follow the feature-or-bugfix-in-bindgen-templates workflow:
+1. Edit one or more files in bindgen/templates/ (e.g., ObjectTemplate.go, VTableImpl.go, Helpers.go, etc.).
+2. Optionally edit Rust code in bindgen/src/gen_go/ to support the template changes.
+3. Update or add tests in binding_tests/ and/or fixtures/.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: bindgen/templates/*.go, bindgen/templates/*.rs, bindgen/src/gen_go/*.rs
+
+---
+id: uniffi-bindgen-go-workflow-add-or-update-binding-test
+trigger: "when doing add or update binding test"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Workflow Add Or Update Binding Test
+
+## Action
+
+Follow the add-or-update-binding-test workflow:
+1. Add or update *_test.go files in binding_tests/.
+2. Optionally update fixtures/ to provide new Rust-side test cases.
+3. Run tests to verify changes.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: binding_tests/*.go, fixtures/*/src/lib.rs
+
+---
+id: uniffi-bindgen-go-instinct-naming-files
+trigger: "When creating or renaming a file"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Instinct Naming Files
+
+## Action
+
+Use PascalCase for file names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.files
+- Observed in bindgen/templates/ObjectTemplate.go
+
+---
+id: uniffi-bindgen-go-instinct-naming-functions
+trigger: "When defining a function"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Instinct Naming Functions
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions
+- Seen in Go source files
+
+---
+id: uniffi-bindgen-go-instinct-naming-classes
+trigger: "When defining a class or struct"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Instinct Naming Classes
+
+## Action
+
+Use PascalCase for class/struct names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes
+
+---
+id: uniffi-bindgen-go-instinct-naming-constants
+trigger: "When declaring a constant"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Instinct Naming Constants
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants
+
+---
+id: uniffi-bindgen-go-instinct-import-style
+trigger: "When importing modules in Go"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in codeStyle.importStyle
+
+---
+id: uniffi-bindgen-go-instinct-export-style
+trigger: "When exporting functions or types"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle
+
+---
+id: uniffi-bindgen-go-instinct-test-location
+trigger: "When adding new tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Instinct Test Location
+
+## Action
+
+Place Go tests in binding_tests/ and Rust-side test code in fixtures/
+
+## Evidence
+
+- Pattern in architecture.folderStructure.testLocation
+- Observed in workflow examples
+
+---
+id: uniffi-bindgen-go-instinct-test-naming
+trigger: "When naming Go test files"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Instinct Test Naming
+
+## Action
+
+Use *_test.go suffix
+
+## Evidence
+
+- Pattern in files: binding_tests/*.go
+- Seen in workflow: add-or-update-binding-test
+
+---
+id: uniffi-bindgen-go-instinct-test-fixture-update
+trigger: "When adding a new feature or bugfix"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Instinct Test Fixture Update
+
+## Action
+
+Add or update a corresponding test fixture in fixtures/ and update binding_tests/
+
+## Evidence
+
+- Workflow: add-or-update-fixture
+- Workflow: feature-or-bugfix-in-bindgen-templates
+
+---
+id: uniffi-bindgen-go-instinct-tdd-pattern
+trigger: "When developing new features or bugfixes"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Instinct Tdd Pattern
+
+## Action
+
+Follow TDD: write failing test, implement code, then refactor
+
+## Evidence
+
+- Workflow: test-driven-development
+- Commit example: test: add tests for user validation
+
+---
+id: uniffi-bindgen-go-instinct-git-commit-format
+trigger: "When writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Instinct Git Commit Format
+
+## Action
+
+Use a prefix (e.g., feat:, fix:, bugfix:) followed by a concise description
+
+## Evidence
+
+- Seen in commit: bugfix: ensure field names and error interface function don't clash (#34)
+- feat: upgrade to uniffi25 (#26)
+
+---
+id: uniffi-bindgen-go-instinct-git-commit-length
+trigger: "When composing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Instinct Git Commit Length
+
+## Action
+
+Keep the commit message brief (around 30-40 characters)
+
+## Evidence
+
+- commits.averageLength = 33
+
+---
+id: uniffi-bindgen-go-instinct-upgrade-uniffi
+trigger: "When upgrading uniffi or core dependencies"
+confidence: 0.98
+domain: workflow
+source: repo-analysis
+source_repo: WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Instinct Upgrade Uniffi
+
+## Action
+
+Update all Cargo.toml, Cargo.lock, bindgen/src/gen_go/*.rs, bindgen/templates/*, tests, and release docs as per workflow
+
+## Evidence
+
+- Workflow: upgrade-uniffi-and-dependencies
+- Commit: Upgrade to `uniffi` v0.31 (#90)
+
+---
+id: uniffi-bindgen-go-instinct-release-version-bump
+trigger: "When preparing a new release"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Instinct Release Version Bump
+
+## Action
+
+Bump version numbers in Cargo.toml, update Cargo.lock, README.md, and CHANGELOG.md
+
+## Evidence
+
+- Workflow: release-version-bump
+- Commit: Bump version to v0.4.0+v0.28.3 (#75)
+
+---
+id: uniffi-bindgen-go-instinct-add-fixture
+trigger: "When new FFI scenario or regression needs testing"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Instinct Add Fixture
+
+## Action
+
+Add or update a fixture under fixtures/, update fixtures/Cargo.toml, and add corresponding binding_tests/
+
+## Evidence
+
+- Workflow: add-or-update-fixture
+- Files: fixtures/*/Cargo.toml, binding_tests/*_test.go
+
+---
+id: uniffi-bindgen-go-instinct-edit-template
+trigger: "When adding a new FFI feature or fixing codegen bugs"
+confidence: 0.92
+domain: workflow
+source: repo-analysis
+source_repo: WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Instinct Edit Template
+
+## Action
+
+Edit bindgen/templates/*.go or *.rs, optionally update bindgen/src/gen_go/*.rs, and update/add tests
+
+## Evidence
+
+- Workflow: feature-or-bugfix-in-bindgen-templates
+- Files: bindgen/templates/*.go, binding_tests/*.go
+
+---
+id: uniffi-bindgen-go-instinct-add-binding-test
+trigger: "When adding or fixing FFI features"
+confidence: 0.88
+domain: workflow
+source: repo-analysis
+source_repo: WangNingkai/uniffi-bindgen-go
+---
+
+# Uniffi Bindgen Go Instinct Add Binding Test
+
+## Action
+
+Add or update *_test.go in binding_tests/ and optionally update fixtures/*/src/lib.rs
+
+## Evidence
+
+- Workflow: add-or-update-binding-test
+- Files: binding_tests/*.go, fixtures/*/src/lib.rs
+
